@@ -83,13 +83,14 @@ public:
 };
 
 int main() {
-    const int screenWidth = 1440;
-    const int screenHeight = 1080;
+    const int screenWidth = 1200;
+    const int screenHeight = 900;
 
     InitWindow(screenWidth, screenHeight, "windows xp vibes but raylib");
     InitAudioDevice();
     SetTargetFPS(60);
 
+    Texture2D wallpaper = LoadTexture("Bliss-1200x900.jpg");
     clickSound = LoadSound("click.wav");
 
     vector<Button> buttons;
@@ -105,7 +106,7 @@ int main() {
     while (!WindowShouldClose()) {
         BeginDrawing();
 
-        ClearBackground(BLACK);
+        DrawTexture(wallpaper, 0, 0, WHITE);
 
         for (Button& button : buttons)
             button.update();
